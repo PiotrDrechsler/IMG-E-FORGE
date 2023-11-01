@@ -4,7 +4,7 @@ import cors from "cors";
 
 import connectDB from "./mongodb/connect.js";
 import postRoutes from "./routes/postRoutes.js";
-import openaiRoutes from "./routes/openaiRoutes.js";
+import replicateRoutes from "./routes/replicateRoutes.js";
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 
 app.use("/api/v1/post", postRoutes);
-app.use("/api/v1/openai", openaiRoutes);
+app.use("/api/v1/replicate", replicateRoutes);
 
 app.get("/", async (req, res) => {
   res.send("Hello into IMG-E-FORGE!");
@@ -29,4 +29,3 @@ const startServer = async () => {
 };
 
 startServer();
-
