@@ -1,29 +1,33 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import { OpenAI } from "openai";
+import Replicate from "replicate";
 
 dotenv.config();
 
 const router = express.Router();
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+});
 
 router.route("/").get((req, res) => {
-  res.send("Hello from DALL-E!");
+  res.send("Hello from IMG-E-FORGE!");
 });
 
 router.route("/").post(async (req, res) => {
   try {
     const { prompt } = req.body;
 
-    const aiResponse = await openai.createImage({
-      prompt,
-      n: 1,
-      size: "1024x1024",
-      response_format: "b64_json",
-    });
+    const aiResponse = await replicate.run(
+      "stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
+      {
+        input: {
+          prompt,
+        },
+      }
+    );
 
-    const image = aiResponse.data.data[0].b64_json;
+    const image = aiResponse;
     res.status(200).json({ photo: image });
   } catch (error) {
     console.error(error);
