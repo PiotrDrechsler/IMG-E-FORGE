@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 const corsConfig = {
-  origin: "https://https://img-e-forge.netlify.app/",
+  origin: "https://img-e-forge.netlify.app/",
   credentials: true,
 };
 app.use(cors(corsConfig));
