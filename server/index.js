@@ -13,7 +13,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const corsConfig = {
-  origin: "https://img-e-forge.netlify.app",
+  origin: "https://img-e-forge.netlify.app/",
   credentials: true,
 };
 app.use(cors(corsConfig));
