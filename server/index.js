@@ -12,12 +12,12 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-const corsConfig = {
-  origin: "https://img-e-forge.adaptable.app",
+const corsOptions = {
+  origin: "*",
   credentials: true,
+  optionSuccessStatus: 200,
 };
-app.use(cors(corsConfig));
-app.options("*", cors(corsConfig));
+app.use(cors(corsOptions));
 app.use(express.json({ limit: "50mb" }));
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/replicate", replicateRoutes);
