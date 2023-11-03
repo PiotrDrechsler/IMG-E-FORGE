@@ -13,7 +13,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: "https://img-e-forge.adaptable.app",
+  origin: "img-e-forge.adaptable.app",
   credentials: true,
   optionSuccessStatus: 200,
 };
