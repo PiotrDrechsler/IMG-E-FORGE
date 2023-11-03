@@ -30,7 +30,7 @@ const CreatePost = () => {
       try {
         setGeneratingImg(true);
         const response = await fetch(
-          "https://img-e-forge.onrender.com/api/v1/replicate",
+          "https://img-e-forge.adaptable.app/api/v1/replicate",
           {
             method: "POST",
             headers: {
@@ -61,7 +61,7 @@ const CreatePost = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://img-e-forge.onrender.com/api/v1/post",
+          "https://img-e-forge.adaptable.app/api/v1/post",
           {
             method: "POST",
             headers: {
