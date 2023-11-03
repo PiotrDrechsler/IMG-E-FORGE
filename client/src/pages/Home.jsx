@@ -26,7 +26,7 @@ const Home = () => {
       const response = await fetch("https://img-e-forge.adaptable.app/api/v1/post", {
         method: "GET",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "json",
         },
       });
 
