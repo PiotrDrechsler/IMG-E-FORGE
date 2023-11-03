@@ -10,6 +10,8 @@ dotenv.config();
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 const corsConfig = {
   origin: "https://img-e-forge.netlify.app",
   credentials: true,
@@ -27,7 +29,7 @@ app.get("/", async (req, res) => {
 const startServer = async () => {
   try {
     connectDB(process.env.MONGODB_URL);
-    app.listen(8080, () => console.log("Server started on port 8080"));
+    app.listen(port, () => console.log(`Server started on port ${port}`));
   } catch (error) {
     console.log(error);
   }
